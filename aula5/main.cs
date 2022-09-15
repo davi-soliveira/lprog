@@ -1,0 +1,23 @@
+using Modelos;
+
+class Aula5{
+
+  public static void Main(string[]args){
+    Aluno aluno1 = new Aluno(0);
+    aluno1.Cpf = "422.657.877-99";
+    Impressora.Imprimir(aluno1);
+    Aluno aluno2 = new Aluno(1);
+    aluno2.Cpf = "660.036.460-20";
+    Impressora.Imprimir(aluno2);
+    Pessoa pessoal = new Pessoa();
+    pessoal1.Cpf = "588.401.710-37";
+    Impressora.Imprimir(pessoa1);
+    Pessoa pessoa2 = (Pessoa) aluno2;
+    Impressora.Imprimir(Pessoa2);
+    Aluno aluno3 = (Aluno) pessoa2;
+    Impressora.Imprimir(alumo3);
+    Professor professor1 = new Professor();
+    professor1.Cpf = "851.152.090-20";
+    Impressora.Imprimir(professor1)
+  }
+}
