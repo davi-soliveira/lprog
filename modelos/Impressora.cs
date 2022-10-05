@@ -4,21 +4,48 @@ namespace Modelos {
 
   class Impressora {
 
+    public static void Imprimir(Object obj) {
+      public static void Imprimir(Texto texto){
+        Console.WriteLine("-----------------------------------------------;");
+        Console.WriteLine(texto.Informe());
+        Console.WriteLine("-----------------------------------------------");
+      }
+      public static void 
+    }
 
-    public static void print(Aluno aluno){
-    Console.WriteLine(
-      "-----------------------\n" +
-      "Matricula: " + aluno.Matricula + "\n" + "Nome: " + aluno.Nome + "\n" + "Periodo: " + aluno.Periodo + "\n" +
-      "-----------------------"
-    );
+    private static void Imprimir(Pessoa pessoa) {
+      Console.WriteLine(
+        "Nome: " + pessoa.Nome + "\n" +
+        "CPF: " + pessoa.Cpf
+      );
+    }
+
+    private static void Imprimir(Contato contato) {
+      Console.WriteLine(
+       contato.Informar()
+      );
+    }
+
+    private static void Imprimir(Professor professor) {
+      Console.WriteLine(
+        "Codigo: " + professor.Codigo
+      );
+    }
+    
+    private static void Imprimir(Aluno aluno) {
+      Console.WriteLine(
+        "Matricula: " + aluno.Matricula + "\n" +
+        "Periodo: " + aluno.Periodo
+      );
+    }
+
+    private static void Imprimir(Disciplina disciplina) {
+      Console.WriteLine(
+        "Nome: " + disciplina.Nome + "\n" +
+        "Semestre: " + disciplina.Semestre
+      );
+    }
+    
   }
 
-  public static void print(Disciplina disciplina){
-    Console.WriteLine(
-      "-----------------------\n" +
-      "Nome: " + disciplina.Nome + "\n" + "Semestre: " + disciplina.Semestre + "\n" +
-      "-----------------------"
-    );
-  }
-  }
 }
