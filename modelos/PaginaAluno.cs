@@ -1,15 +1,40 @@
-namespace Modelos{
-class TextoAluno : Texto{
+namespace Modelos {
 
-  public Aluno aluno{
-    get;set;
+  class TextoAluno : TextoPessoa {
+
+    public Aluno Aluno {
+      get; set;
+    }
+
+    public TextoAluno(Aluno aluno) : base((Pessoa) aluno) {
+      this.Aluno = aluno;
+    }
+
+    public override string Informar() {
+      return
+        base.Informar() + "\n" +
+        "Matricula: " + this.Aluno.Matricula + "\n" +
+        "Periodo: " + this.Aluno.Periodo;
+    }
+    
   }
-  public 
-}
-  class PaginaAluno : Pagina<Aluno>{
-  
-    public Texto Formatar(Aluno aluno){
-        
+
+  class PaginaAluno : Pagina<Aluno> {
+
+    public TextoAluno TextoAluno {
+      get; set;
+    }
+
+    public Texto Formatar(Aluno aluno) {
+      return this.TextoAluno = new TextoAluno(aluno);
+    }
+
+    public string Rodape() {
+      string rodape = "";
+      if (string.IsNullOrEmpty(this.TextoAluno.Aluno.Matricula)) {
+        rodape += "** Matricula invalida\n";
+      }
+      return rodape + Impressora.LinhaComum();
     }
     
   }

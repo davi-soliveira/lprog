@@ -4,46 +4,22 @@ namespace Modelos {
 
   class Impressora {
 
-    public static void Imprimir(Object obj) {
-      public static void Imprimir(Texto texto){
-        Console.WriteLine("-----------------------------------------------;");
-        Console.WriteLine(texto.Informe());
-        Console.WriteLine("-----------------------------------------------");
-      }
-      public static void 
+    public delegate string Linha();
+
+    public static string LinhaComum() {
+      return "-------------------------";
     }
 
-    private static void Imprimir(Pessoa pessoa) {
-      Console.WriteLine(
-        "Nome: " + pessoa.Nome + "\n" +
-        "CPF: " + pessoa.Cpf
-      );
-    }
-
-    private static void Imprimir(Contato contato) {
-      Console.WriteLine(
-       contato.Informar()
-      );
-    }
-
-    private static void Imprimir(Professor professor) {
-      Console.WriteLine(
-        "Codigo: " + professor.Codigo
-      );
+    public static void Imprimir(Texto texto) {
+      Imprimir(texto, LinhaComum, LinhaComum);
     }
     
-    private static void Imprimir(Aluno aluno) {
-      Console.WriteLine(
-        "Matricula: " + aluno.Matricula + "\n" +
-        "Periodo: " + aluno.Periodo
-      );
-    }
-
-    private static void Imprimir(Disciplina disciplina) {
-      Console.WriteLine(
-        "Nome: " + disciplina.Nome + "\n" +
-        "Semestre: " + disciplina.Semestre
-      );
+    public static void Imprimir(Texto texto,
+                                Linha cabecalho,
+                                Linha rodape) {
+      Console.WriteLine(cabecalho());
+      Console.WriteLine(texto.Informar());
+      Console.WriteLine(rodape());
     }
     
   }
